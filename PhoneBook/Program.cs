@@ -24,8 +24,15 @@ namespace PhoneBook
                 }
                 else
                 {
-                    Console.WriteLine("Введите ФИО аббонента :");
-                    phoneBook.Add(phoneNumber, Console.ReadLine());
+                    Console.WriteLine("Введите ФИО аббонента :");                   
+                    try
+                    {
+                        phoneBook.Add(phoneNumber, Console.ReadLine());
+                    }
+                    catch (ArgumentException e)
+                    {
+                        Console.WriteLine("Исключение \"{0}\" {1}", e.GetType().Name, e.Message);
+                    }
                 }
             }
             return phoneBook;
